@@ -1,0 +1,66 @@
+version: '2.1'
+services:
+    zookeeper:
+      image: confluentinc/cp-zookeeper:5.1.0
+      container_name: zookeeper
+      environment:
+        - ZOOKEEPER_CLIENT_PORT=2181
+      ports:
+        - 2181:2181  
+    kafka:
+      image: confluentinc/cp-kafka:5.1.0
+      container_name: kafka
+      environment:
+        - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+        - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+        - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+      ports:
+        - 9092:9092
+      links:
+        - zookeeper 
+    web1:
+      container_name: web1
+      image: httpd
+      depends_on:
+        - "fluentd"
+      ports:
+        - "8080:80"
+      logging:
+        driver: "fluentd"
+        options:
+          fluentd-address: localhost:24224
+          tag: web1
+          fluentd-async-connect: 'true'
+          mode: non-blocking
+          max-buffer-size: 4m  
+    web2:
+      container_name: web2
+      image: httpd
+      depends_on:
+        - "fluentd"
+      ports:
+        - "8081:80"
+      logging:
+        driver: "fluentd"
+        options:
+          fluentd-address: localhost:24224
+          tag: web2
+          fluentd-async-connect: 'true'
+          mode: non-blocking
+          max-buffer-size: 4m
+    fluentd:
+      container_name: fluentd
+      build:
+        context: ./
+        dockerfile: Dockerfile-fluentd
+      depends_on:
+        - "kafka"
+      volumes:
+        - ./fluentd-conf:/fluentd/etc
+        - ./logs:/var/logs
+        - ./data:/var/data
+      ports:
+        - "24224:24224"
+        - "24224:24224/udp"
+        - "24220:24220"
+      network_mode: host
