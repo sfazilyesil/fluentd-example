@@ -1,4 +1,4 @@
 # fluentd-example
-Fluentd example with collecting docker containers logs via fluentd log driver and json file logs via fluentd file input observer; processing and enriching them; sending to kafka to be consumed later.
+Log colecting, unifying and forwarding with Fluentd example. It collects Docker container logs via fluentd log driver and json file logs via fluentd file input observer. Then it processes and enriches them; finally send them to Kafka to be consumed later.
 
 ![](usage-example.gif)
