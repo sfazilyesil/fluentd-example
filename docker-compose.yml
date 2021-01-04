@@ -21,8 +21,6 @@ services:
     web1:
       container_name: web1
       image: httpd
-      depends_on:
-        - "fluentd"
       ports:
         - "8080:80"
       logging:
@@ -36,8 +34,6 @@ services:
     web2:
       container_name: web2
       image: httpd
-      depends_on:
-        - "fluentd"
       ports:
         - "8081:80"
       logging:
@@ -45,6 +41,21 @@ services:
         options:
           fluentd-address: localhost:24224
           tag: web2
+          fluentd-async-connect: 'true'
+          mode: non-blocking
+          max-buffer-size: 4m
+    nodejs:
+      container_name: nodejs
+      build:
+        context: ./nodejs
+        dockerfile: Dockerfile
+      ports:
+        - "3000:3000"
+      logging:
+        driver: "fluentd"
+        options:
+          fluentd-address: localhost:24224
+          tag: nodejs
           fluentd-async-connect: 'true'
           mode: non-blocking
           max-buffer-size: 4m
