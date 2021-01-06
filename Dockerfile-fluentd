@@ -5,3 +5,4 @@ USER root
 RUN mkdir /buffer
 RUN ["gem", "install", "fluent-plugin-kafka", "--no-document", "--version", "0.7.9"]
 RUN ["gem", "install", "fluent-plugin-concat", "--no-document", "--version", "2.4.0"]
+RUN ["gem", "install", "fluent-plugin-record-modifier", "--no-document", "--version", "2.1.0"]
