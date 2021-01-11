@@ -2,14 +2,21 @@ const express = require('express')
 const app = express()
 const logger = require('pino')()
 
+const logConsole = (...args) => {
+    const now = new Date().toISOString();
+    console.log(now + " - " + args.join(" - "));
+};
+
 app.get('/', (req, res) => {
-    console.log("Sending reponse");
+    logConsole("Sending reponse");
     res.send('Hello World!');
 });
+
 app.get('/json', (req, res) => {
     logger.info("Sending reponse");
     res.send({"msg":"hello world!!!"});
 });
+
 app.get('/error-json', (req, res) => {
 
     try {
@@ -22,16 +29,17 @@ app.get('/error-json', (req, res) => {
         res.send(err);
     } 
 });
-app.get('/error', (req, res) => {
 
+app.get('/error', (req, res) => {
     try {
         var list = null;
         var k = list[5];
-        console.log("no error");
+        logConsole("no error");
         res.send("no error");
     } catch (err) {
-        console.log("Err:", err);
+        logConsole("Err: ", err.stack);
         res.send(err);
     } 
 });
-app.listen(3000, () => console.log('Server ready'))
+
+app.listen(3000, () => logConsole('Server ready'))

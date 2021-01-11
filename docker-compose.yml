@@ -44,13 +44,28 @@ services:
           fluentd-async-connect: 'true'
           mode: non-blocking
           max-buffer-size: 4m
-    nodejs:
-      container_name: nodejs
+    nodejs1:
+      container_name: nodejs1
       build:
         context: ./nodejs
         dockerfile: Dockerfile
       ports:
         - "3000:3000"
+      logging:
+        driver: "fluentd"
+        options:
+          fluentd-address: localhost:24224
+          tag: nodejs
+          fluentd-async-connect: 'true'
+          mode: non-blocking
+          max-buffer-size: 4m
+    nodejs2:
+      container_name: nodejs2
+      build:
+        context: ./nodejs
+        dockerfile: Dockerfile
+      ports:
+        - "3001:3000"
       logging:
         driver: "fluentd"
         options:
