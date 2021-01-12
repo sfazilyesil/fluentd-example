@@ -7,18 +7,26 @@ const logConsole = (...args) => {
     console.log(now + " - " + args.join(" - "));
 };
 
+const logConsoleWithNFormat = (...args) => {
+    const now = new Date().toISOString();
+    console.log(now + " - " + args.join(" - "));
+    console.log("[" + now + "] - " + args.join(" - "));
+};
+
 app.get('/', (req, res) => {
-    logConsole("Sending reponse");
+    logConsole("Received a new request.");
+    logConsole("Sending reponse.");
     res.send('Hello World!');
 });
 
 app.get('/json', (req, res) => {
+    logger.info("Received a new request.");
     logger.info("Sending reponse");
     res.send({"msg":"hello world!!!"});
 });
 
 app.get('/error-json', (req, res) => {
-
+    logger.info("Received a new request.");
     try {
         var list = null;
         var k = list[5];
@@ -31,15 +39,16 @@ app.get('/error-json', (req, res) => {
 });
 
 app.get('/error', (req, res) => {
+    logConsole("Received a new request.");
     try {
         var list = null;
         var k = list[5];
         logConsole("no error");
         res.send("no error");
     } catch (err) {
-        logConsole("Err: ", err.stack);
+        logConsoleWithNFormat("Error", "Error occured... ", err.stack);
         res.send(err);
     } 
 });
 
-app.listen(3000, () => logConsole('Server ready'))
+app.listen(3000, () => logConsole('Server ready...'))
