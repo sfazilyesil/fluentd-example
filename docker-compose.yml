@@ -17,7 +17,7 @@ services:
       ports:
         - 9092:9092
       links:
-        - zookeeper 
+        - zookeeper
     web1:
       container_name: web1
       image: httpd
@@ -55,7 +55,7 @@ services:
         driver: "fluentd"
         options:
           fluentd-address: localhost:24224
-          tag: nodejs
+          tag: nodejs1
           fluentd-async-connect: 'true'
           mode: non-blocking
           max-buffer-size: 4m
@@ -70,7 +70,7 @@ services:
         driver: "fluentd"
         options:
           fluentd-address: localhost:24224
-          tag: nodejs
+          tag: nodejs2
           fluentd-async-connect: 'true'
           mode: non-blocking
           max-buffer-size: 4m
@@ -79,12 +79,15 @@ services:
       build:
         context: ./
         dockerfile: Dockerfile-fluentd
-      depends_on:
-        - "kafka"
       volumes:
         - ./fluentd-conf:/fluentd/etc
         - ./logs:/var/logs
         - ./data:/var/data
+      environment: 
+        - KAFKA_BROKERS=localhost:9092
+        - MONITOR_AGENT_PORT=24220
+        - PROMETHEUS_PORT=24221
+        - FORWARD_PORT=24224
       ports:
         - "24224:24224"
         - "24224:24224/udp"
