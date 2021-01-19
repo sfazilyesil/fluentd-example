@@ -1,0 +1,135 @@
+# TYPE fluentd_input_status_num_records_total_all counter
+# HELP fluentd_input_status_num_records_total_all The total number of incoming records all
+fluentd_input_status_num_records_total_all{hostname="laptop"} 220008.0
+# TYPE fluentd_input_status_num_records_total counter
+# HELP fluentd_input_status_num_records_total The total number of incoming records
+fluentd_input_status_num_records_total{tag="fluent.warn",hostname="laptop"} 93.0
+fluentd_input_status_num_records_total{tag="fluent.info",hostname="laptop"} 35.0
+fluentd_input_status_num_records_total{tag="nodejs1",hostname="laptop"} 220008.0
+# TYPE fluentd_tail_file_position gauge
+# HELP fluentd_tail_file_position Current position of file.
+fluentd_tail_file_position{host="laptop",plugin_id="object:758",type="tail",path="/var/logs/10.19.2020-unformatted-1.log"} 1358.0
+fluentd_tail_file_position{host="laptop",plugin_id="object:76c",type="tail",path="/var/logs/10.11.2020-json-formatted-1.def.log"} 2989.0
+# TYPE fluentd_tail_file_inode gauge
+# HELP fluentd_tail_file_inode Current inode of file.
+fluentd_tail_file_inode{host="laptop",plugin_id="object:758",type="tail",path="/var/logs/10.19.2020-unformatted-1.log"} 1034090.0
+fluentd_tail_file_inode{host="laptop",plugin_id="object:76c",type="tail",path="/var/logs/10.11.2020-json-formatted-1.def.log"} 1034087.0
+# TYPE fluentd_output_status_buffer_total_bytes gauge
+# HELP fluentd_output_status_buffer_total_bytes Current total size of stage and queue buffers.
+fluentd_output_status_buffer_total_bytes{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 846.0
+fluentd_output_status_buffer_total_bytes{host="laptop",plugin_id="object:708",type="file"} 0.0
+# TYPE fluentd_output_status_buffer_stage_length gauge
+# HELP fluentd_output_status_buffer_stage_length Current length of stage buffers.
+fluentd_output_status_buffer_stage_length{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 0.0
+fluentd_output_status_buffer_stage_length{host="laptop",plugin_id="object:708",type="file"} 0.0
+# TYPE fluentd_output_status_buffer_stage_byte_size gauge
+# HELP fluentd_output_status_buffer_stage_byte_size Current total size of stage buffers.
+fluentd_output_status_buffer_stage_byte_size{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 0.0
+fluentd_output_status_buffer_stage_byte_size{host="laptop",plugin_id="object:708",type="file"} 0.0
+# TYPE fluentd_output_status_buffer_queue_length gauge
+# HELP fluentd_output_status_buffer_queue_length Current length of queue buffers.
+fluentd_output_status_buffer_queue_length{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 1.0
+fluentd_output_status_buffer_queue_length{host="laptop",plugin_id="object:708",type="file"} 0.0
+# TYPE fluentd_output_status_queue_byte_size gauge
+# HELP fluentd_output_status_queue_byte_size Current total size of queue buffers.
+fluentd_output_status_queue_byte_size{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 846.0
+fluentd_output_status_queue_byte_size{host="laptop",plugin_id="object:708",type="file"} 0.0
+# TYPE fluentd_output_status_buffer_available_space_ratio gauge
+# HELP fluentd_output_status_buffer_available_space_ratio Ratio of available space in buffer.
+fluentd_output_status_buffer_available_space_ratio{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 100.0
+fluentd_output_status_buffer_available_space_ratio{host="laptop",plugin_id="object:708",type="file"} 100.0
+# TYPE fluentd_output_status_buffer_newest_timekey gauge
+# HELP fluentd_output_status_buffer_newest_timekey Newest timekey in buffer.
+fluentd_output_status_buffer_newest_timekey{host="laptop",plugin_id="object:708",type="file"} 1611039600.0
+# TYPE fluentd_output_status_buffer_oldest_timekey gauge
+# HELP fluentd_output_status_buffer_oldest_timekey Oldest timekey in buffer.
+fluentd_output_status_buffer_oldest_timekey{host="laptop",plugin_id="object:708",type="file"} 1611039600.0
+# TYPE fluentd_output_status_retry_count gauge
+# HELP fluentd_output_status_retry_count Current retry counts.
+fluentd_output_status_retry_count{host="laptop",plugin_id="object:a64",type="relabel"} 0.0
+fluentd_output_status_retry_count{host="laptop",plugin_id="object:a78",type="relabel"} 0.0
+fluentd_output_status_retry_count{host="laptop",plugin_id="object:a8c",type="detect_exceptions"} 0.0
+fluentd_output_status_retry_count{host="laptop",plugin_id="object:b18",type="route"} 0.0
+fluentd_output_status_retry_count{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 29.0
+fluentd_output_status_retry_count{host="laptop",plugin_id="object:708",type="file"} 0.0
+# TYPE fluentd_output_status_num_errors gauge
+# HELP fluentd_output_status_num_errors Current number of errors.
+fluentd_output_status_num_errors{host="laptop",plugin_id="object:a64",type="relabel"} 0.0
+fluentd_output_status_num_errors{host="laptop",plugin_id="object:a78",type="relabel"} 0.0
+fluentd_output_status_num_errors{host="laptop",plugin_id="object:a8c",type="detect_exceptions"} 0.0
+fluentd_output_status_num_errors{host="laptop",plugin_id="object:b18",type="route"} 0.0
+fluentd_output_status_num_errors{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 29.0
+fluentd_output_status_num_errors{host="laptop",plugin_id="object:708",type="file"} 0.0
+# TYPE fluentd_output_status_emit_count gauge
+# HELP fluentd_output_status_emit_count Current emit counts.
+fluentd_output_status_emit_count{host="laptop",plugin_id="object:a64",type="relabel"} 0.0
+fluentd_output_status_emit_count{host="laptop",plugin_id="object:a78",type="relabel"} 0.0
+fluentd_output_status_emit_count{host="laptop",plugin_id="object:a8c",type="detect_exceptions"} 220008.0
+fluentd_output_status_emit_count{host="laptop",plugin_id="object:b18",type="route"} 220008.0
+fluentd_output_status_emit_count{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 220008.0
+fluentd_output_status_emit_count{host="laptop",plugin_id="object:708",type="file"} 220008.0
+# TYPE fluentd_output_status_emit_records gauge
+# HELP fluentd_output_status_emit_records Current emit records.
+fluentd_output_status_emit_records{host="laptop",plugin_id="object:a64",type="relabel"} 0.0
+fluentd_output_status_emit_records{host="laptop",plugin_id="object:a78",type="relabel"} 0.0
+fluentd_output_status_emit_records{host="laptop",plugin_id="object:a8c",type="detect_exceptions"} 220008.0
+fluentd_output_status_emit_records{host="laptop",plugin_id="object:b18",type="route"} 220008.0
+fluentd_output_status_emit_records{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 220008.0
+fluentd_output_status_emit_records{host="laptop",plugin_id="object:708",type="file"} 220008.0
+# TYPE fluentd_output_status_write_count gauge
+# HELP fluentd_output_status_write_count Current write counts.
+fluentd_output_status_write_count{host="laptop",plugin_id="object:a64",type="relabel"} 0.0
+fluentd_output_status_write_count{host="laptop",plugin_id="object:a78",type="relabel"} 0.0
+fluentd_output_status_write_count{host="laptop",plugin_id="object:a8c",type="detect_exceptions"} 0.0
+fluentd_output_status_write_count{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 46.0
+fluentd_output_status_write_count{host="laptop",plugin_id="object:708",type="file"} 7.0
+# TYPE fluentd_output_status_rollback_count gauge
+# HELP fluentd_output_status_rollback_count Current rollback counts.
+fluentd_output_status_rollback_count{host="laptop",plugin_id="object:a64",type="relabel"} 0.0
+fluentd_output_status_rollback_count{host="laptop",plugin_id="object:a78",type="relabel"} 0.0
+fluentd_output_status_rollback_count{host="laptop",plugin_id="object:a8c",type="detect_exceptions"} 0.0
+fluentd_output_status_rollback_count{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 29.0
+fluentd_output_status_rollback_count{host="laptop",plugin_id="object:708",type="file"} 0.0
+# TYPE fluentd_output_status_flush_time_count gauge
+# HELP fluentd_output_status_flush_time_count Total flush time.
+fluentd_output_status_flush_time_count{host="laptop",plugin_id="object:a64",type="relabel"} 0.0
+fluentd_output_status_flush_time_count{host="laptop",plugin_id="object:a78",type="relabel"} 0.0
+fluentd_output_status_flush_time_count{host="laptop",plugin_id="object:a8c",type="detect_exceptions"} 0.0
+fluentd_output_status_flush_time_count{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 55732.0
+fluentd_output_status_flush_time_count{host="laptop",plugin_id="object:708",type="file"} 2630.0
+# TYPE fluentd_output_status_slow_flush_count gauge
+# HELP fluentd_output_status_slow_flush_count Current slow flush counts.
+fluentd_output_status_slow_flush_count{host="laptop",plugin_id="object:a64",type="relabel"} 0.0
+fluentd_output_status_slow_flush_count{host="laptop",plugin_id="object:a78",type="relabel"} 0.0
+fluentd_output_status_slow_flush_count{host="laptop",plugin_id="object:a8c",type="detect_exceptions"} 0.0
+fluentd_output_status_slow_flush_count{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 1.0
+fluentd_output_status_slow_flush_count{host="laptop",plugin_id="object:708",type="file"} 0.0
+# TYPE fluentd_output_status_retry_wait gauge
+# HELP fluentd_output_status_retry_wait Current retry wait
+fluentd_output_status_retry_wait{host="laptop",plugin_id="object:a64",type="relabel"} 0.0
+fluentd_output_status_retry_wait{host="laptop",plugin_id="object:a78",type="relabel"} 0.0
+fluentd_output_status_retry_wait{host="laptop",plugin_id="object:a8c",type="detect_exceptions"} 0.0
+fluentd_output_status_retry_wait{host="laptop",plugin_id="object:6e0",type="kafka_buffered"} 2113.7689864748572
+fluentd_output_status_retry_wait{host="laptop",plugin_id="object:708",type="file"} 0.0
+# TYPE fluentd_status_buffer_newest_timekey gauge
+# HELP fluentd_status_buffer_newest_timekey Newest timekey in buffer.
+fluentd_status_buffer_newest_timekey{host="laptop",plugin_id="object:708",plugin_category="output",type="file"} 1611039600.0
+# TYPE fluentd_status_buffer_oldest_timekey gauge
+# HELP fluentd_status_buffer_oldest_timekey Oldest timekey in buffer.
+fluentd_status_buffer_oldest_timekey{host="laptop",plugin_id="object:708",plugin_category="output",type="file"} 1611039600.0
+# TYPE fluentd_status_buffer_queue_length gauge
+# HELP fluentd_status_buffer_queue_length Current buffer queue length.
+fluentd_status_buffer_queue_length{host="laptop",plugin_id="object:6e0",plugin_category="output",type="kafka_buffered"} 1.0
+fluentd_status_buffer_queue_length{host="laptop",plugin_id="object:708",plugin_category="output",type="file"} 0.0
+# TYPE fluentd_status_buffer_total_bytes gauge
+# HELP fluentd_status_buffer_total_bytes Current total size of queued buffers.
+fluentd_status_buffer_total_bytes{host="laptop",plugin_id="object:6e0",plugin_category="output",type="kafka_buffered"} 846.0
+fluentd_status_buffer_total_bytes{host="laptop",plugin_id="object:708",plugin_category="output",type="file"} 0.0
+# TYPE fluentd_status_retry_count gauge
+# HELP fluentd_status_retry_count Current retry counts.
+fluentd_status_retry_count{host="laptop",plugin_id="object:a64",plugin_category="output",type="relabel"} 0.0
+fluentd_status_retry_count{host="laptop",plugin_id="object:a78",plugin_category="output",type="relabel"} 0.0
+fluentd_status_retry_count{host="laptop",plugin_id="object:a8c",plugin_category="output",type="detect_exceptions"} 0.0
+fluentd_status_retry_count{host="laptop",plugin_id="object:b18",plugin_category="output",type="route"} 0.0
+fluentd_status_retry_count{host="laptop",plugin_id="object:6e0",plugin_category="output",type="kafka_buffered"} 29.0
+fluentd_status_retry_count{host="laptop",plugin_id="object:708",plugin_category="output",type="file"} 0.0
